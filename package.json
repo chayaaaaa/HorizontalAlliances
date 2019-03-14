@@ -10,9 +10,14 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "fastclick": "^1.0.6",
+    "flex.css": "^1.1.7",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "mand-mobile": "^1.2.1",
     "nib": "^1.1.2",
+    "normalize.css": "^8.0.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
