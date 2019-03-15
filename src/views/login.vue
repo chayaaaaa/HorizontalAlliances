@@ -1,57 +1,137 @@
 <template>
-  <main id="login" class="view" role="main">
-    <div class="heading">
-      <h1><span>Mand Mobile</span></h1>
-      <p>一个基于Vue的移动端UI组件库，丰富、灵活、实用，快速搭建优质的金融类产品，让复杂的金融场景变简单。</p>
+  <div class="container login">
+    <!-- ==========    登录页   ========== -->
+    <div class="main">
+      <div class="logo">
+        <img src="@/image/login/logo.png">
+      </div>
+      <div class="md-example-child md-example-child-input-item-1">
+        <md-field>
+          <md-input-item ref="name" title="用户名" placeholder="用户名" is-title-latent clearable></md-input-item>
+          <md-input-item
+            ref="id"
+            title="登录密码"
+            placeholder="登录密码"
+            is-title-latent
+            clearable
+            type="password"
+          ></md-input-item>
+        </md-field>
+      </div>
+      <button @click="login()" class="login_button">登录</button>
+      <div class="bottom">
+        <span @click="forgetPassword()">忘记密码？</span>
+        <span @click="register()">注册账号</span>
+      </div>
     </div>
-
-    <md-button @click="handleClick">点我</md-button>
-  </main>
+  </div>
 </template>
 
 <script>
-  import { Button, Toast } from 'mand-mobile'
+import "@/commonCSS/flexcss.less";
+import { InputItem, Field } from "mand-mobile";
 
-  export default {
-    name: 'login',
-    components: {
-      [Button.name]: Button
+export default {
+  name: "login",
+  components: {
+    [InputItem.name]: InputItem,
+    [Field.name]: Field
+  },
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+    // 登录
+    login() {
+      this.$router.push("/guideView");
     },
-    methods: {
-      handleClick() {
-        Toast.info('不错哟~')
-      }
+    // 注册
+    register() {
+      this.$router.push("/register");
+    },
+    // 忘记密码
+    forgetPassword() {
+      this.$router.push("/setPassWord");
     }
   }
+};
 </script>
 
-<style>
-  .heading {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-  .heading h1 {
-    color: #333;
-    line-height: 1.15;
-    font-size: 64px;
-    margin-bottom: 32px;
-  }
-  .heading h1 span {
-    position: relative;
-  }
-  .heading h1 span::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    bottom: 8px;
+<style lang="less" scoped>
+.main {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  font-size: 0.5rem !important;
+  .logo {
     width: 100%;
-    height: 20px;
-    background: #ecf6ff;
+    position: absolute;
+    top: 3rem;
+    text-align: center;
+    img {
+      width: 5rem;
+      height: 5rem;
+    }
   }
-  .heading p {
-    font-size: 32px;
-    color: #666;
-    line-height: 56px;
+  // 输入框
+  .md-example-child-input-item-1 {
+    width: 80%;
+    position: absolute;
+    top: 10rem;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
   }
+  .login_button {
+    width: 80%;
+    height: 1.5rem;
+    background: linear-gradient(to right, #f82d25, #d5161a);
+    position: absolute;
+    bottom: 6.5rem;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    border-radius: 0.2rem;
+    color: #fff;
+    letter-spacing: 0.15rem;
+    font-size: 0.5rem;
+  }
+  .bottom {
+    color: #c5c5c5;
+    width: 80%;
+    height: 1.5rem;
+    position: absolute;
+    bottom: 4.5rem;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    font-size: 0.45rem;
+    span:nth-child(1) {
+      display: inline;
+      float: left;
+    }
+    span:nth-child(2) {
+      display: inline;
+      float: right;
+    }
+  }
+}
 </style>
+<style lang="less">
+.md-input-item .md-input-item-control .md-input-item-input,
+.md-input-item .md-input-item-control .md-input-item-fake {
+  height: 2rem !important;
+}
+.md-field .md-field-content .md-field-item .md-field-item-inner::before,
+.md-field .md-field-content .md-input-item-container::before {
+  bottom: 0.2rem !important;
+}
+.md-input-item .md-input-item-control .md-input-item-input,
+.md-input-item .md-input-item-control .md-input-item-fake {
+  font-size: 0.5rem !important;
+  color: #757575 !important;
+}
+</style>
+

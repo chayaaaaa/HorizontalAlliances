@@ -7,6 +7,7 @@ import axios from 'axios'
 import router from './router'
 import './styles/theme.styl'
 import './styles/global.css'
+import '@/commonJS/rem.js'
 import 'normalize.css' // css样式初始化
 import 'flex.css' // flex弹性布局
 FastClick.attach(document.body)
