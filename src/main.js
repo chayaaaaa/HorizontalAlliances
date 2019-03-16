@@ -10,6 +10,7 @@ import './styles/global.css'
 import '@/commonJS/rem.js'
 import 'normalize.css' // css样式初始化
 import 'flex.css' // flex弹性布局
+
 FastClick.attach(document.body)
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios;// 将axios挂载到prototype上
